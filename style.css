@@ -1,0 +1,169 @@
+/*
+ * .drag-grabber is display:none and .draggable's resize is disabled by default in ST's
+ * global CSS (toggle-dependent.css), gated behind the "Movable UI Panels" setting.
+ * Video windows/groups must always be draggable and resizable regardless of that
+ * unrelated global toggle, so both are force-enabled here.
+ */
+.videoPlayerWindow,
+.videoWindowGroup {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    min-width: 240px;
+    min-height: 200px;
+    resize: both !important;
+    overflow: hidden;
+    z-index: 30;
+    background: var(--SmartThemeBlurTintColor, #000);
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 6px;
+}
+
+.videoPlayerWindow .drag-grabber,
+.videoWindowGroup .drag-grabber {
+    display: inline-flex !important;
+    align-items: center;
+    cursor: grab;
+}
+
+.videoPlayerWindow .dragTitle {
+    padding: 2px 6px;
+    font-size: 0.85em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.videoPlayerWindow .panelControlBar,
+.videoWindowGroup .panelControlBar {
+    align-items: center;
+    gap: 6px;
+    padding: 2px 6px;
+}
+
+.vpwGroupButton {
+    cursor: pointer;
+    position: relative;
+}
+
+.vpwGroupDropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 40;
+    min-width: 140px;
+    background: var(--SmartThemeBlurTintColor, #222);
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    padding: 4px 0;
+}
+
+.vpwGroupDropdownItem {
+    padding: 4px 10px;
+    font-size: 0.85em;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.vpwGroupDropdownItem:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.vpwGroupDropdownSeparator {
+    height: 1px;
+    margin: 4px 0;
+    background: var(--SmartThemeBorderColor);
+}
+
+.vpwBody {
+    flex: 1 1 auto;
+    min-height: 0;
+    background: #000;
+}
+
+.vpwVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000;
+    display: block;
+}
+
+.vpwControls {
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 6px;
+}
+
+.vpwVolume {
+    flex: 1 1 auto;
+}
+
+.vpwLoop {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.vpwLoop.active {
+    opacity: 1;
+    color: var(--golden, #4caf50);
+}
+
+.vpwPlayPause {
+    cursor: pointer;
+}
+
+.vpwSpeed {
+    max-width: 80px;
+}
+
+.videoWindowGroup {
+    padding-top: 0;
+}
+
+.videoWindowGroup .vwgHeader {
+    flex: 0 0 auto;
+}
+
+.videoWindowGroup .vwgTitle {
+    flex: 1 1 auto;
+    font-size: 0.85em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.videoWindowGroup .videoPlayerWindow {
+    position: absolute;
+    resize: none !important;
+}
+
+.videoWindowGroup .videoPlayerWindow .drag-grabber {
+    display: none !important;
+}
+
+#vpwSnapGuides {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+.vpwSnapGuide {
+    position: fixed;
+    background: var(--golden, #ffcc00);
+}
+
+.vpwSnapGuide.vertical {
+    width: 1px;
+    top: 0;
+    bottom: 0;
+}
+
+.vpwSnapGuide.horizontal {
+    height: 1px;
+    left: 0;
+    right: 0;
+}

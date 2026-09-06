@@ -1,0 +1,40 @@
+<div class="video-playback-settings">
+    <div class="inline-drawer">
+        <div class="inline-drawer-toggle inline-drawer-header">
+            <b>Video Playback</b>
+            <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div class="inline-drawer-content">
+            <label class="checkbox_label" for="vpw_snap_enabled">
+                <input id="vpw_snap_enabled" type="checkbox">
+                Snap windows to edges
+            </label>
+            <label for="vpw_snap_threshold">
+                Snap threshold (px)
+                <input id="vpw_snap_threshold" class="text_pole" type="number" min="0" max="60">
+            </label>
+            <label for="vpw_default_volume">
+                Default volume
+                <input id="vpw_default_volume" type="range" min="0" max="100">
+            </label>
+            <label for="vpw_default_speed">
+                Default speed
+                <select id="vpw_default_speed" class="text_pole">
+                    <option value="0.25">0.25x</option>
+                    <option value="0.5">0.50x</option>
+                    <option value="0.75">0.75x</option>
+                    <option value="1">1.00x</option>
+                    <option value="1.25">1.25x</option>
+                    <option value="1.5">1.50x</option>
+                    <option value="1.75">1.75x</option>
+                    <option value="2">2.00x</option>
+                </select>
+            </label>
+            <label class="checkbox_label" for="vpw_default_loop">
+                <input id="vpw_default_loop" type="checkbox">
+                Default loop on
+            </label>
+            <small>Open video windows are not restored after reloading the page - local video files cannot be re-opened automatically for security reasons.</small>
+        </div>
+    </div>
+</div>
